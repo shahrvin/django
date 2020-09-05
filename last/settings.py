@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'blog.apps.BlogConfig'
+    'blog.apps.BlogConfig',
+    'ckeditor',
 ]
 
 MIDDLEWARE = [
@@ -69,15 +70,19 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'last.wsgi.application'
-
+ 
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': "shervin",
+        'USER': "shervin" ,
+        'PASSWORD':"shervin",
+        'HOST':"localhost",
+        'PORT':"5432",
     }
 }
 
@@ -118,4 +123,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = '/static/'
+
+
+
+# CKEDITOR SETTINGS 
+STATIC_ROOT = Path(__file__).resolve(strict=True).parent.parent
+CKEDITOR_FILENAME_GENERATOR = 'utils.get_filename'
+
+STATIC_URL = '/static/' 
+CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
