@@ -1,0 +1,19 @@
+# created by virtualenv automatically
+admin/
+ckeditor/
+# database
+db.sqlite3
+
+# docker 
+docker-compose.yml
+
+# viryual environment
+venv/ 
+
+
+# migrations
+blog/migrations/
+blog/__pycache__/
+
+# files 
+files/

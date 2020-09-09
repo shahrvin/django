@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+from os import path 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
@@ -127,10 +128,14 @@ USE_TZ = True
 
 
 # CKEDITOR SETTINGS 
-STATIC_ROOT = Path(__file__).resolve(strict=True).parent.parent
+# STATIC_ROOT = Path(__file__).resolve(strict=True).parent.parent
+STATIC_ROOT = path.join(BASE_DIR,"staticfiles")
 CKEDITOR_FILENAME_GENERATOR = 'utils.get_filename'
 
 STATIC_URL = '/static/' 
+STATICFILES_DIRS = (
+    path.join(BASE_DIR,"static"),
+)
 CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
 
 CKEDITOR_UPLOAD_PATH = "uploads/"

@@ -23,7 +23,7 @@ class UserProfile(models.Model):
 class Article(models.Model):
     title = models.CharField(max_length=312 , null= False , blank= False)
     cover = models.FileField(upload_to='files/article_cover/',null = False , blank= False , validators=[validate_file_extension])
-    ceated = models.DateTimeField()
+    created = models.DateTimeField()
     content = RichTextField(default=datetime.now , blank = False)
     category = models.ForeignKey('Category' , on_delete=models.CASCADE)
     author = models.OneToOneField(UserProfile, on_delete=models.CASCADE)
